@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.ToString.Exclude;
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,6 +24,7 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //비영속 상태의 경우 = null
     private Long id;
 
     @Column(name = "email", nullable = false, updatable = false, unique = true)
