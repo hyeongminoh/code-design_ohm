@@ -2,10 +2,11 @@ package com.code.design.lombok;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class MemberTest {
-
+    //git test
     @Test
     public void setter_남용의_문제() {
         // 우리는 회원에 대한 이메일 변경 기능을 제공하지 않는다.
