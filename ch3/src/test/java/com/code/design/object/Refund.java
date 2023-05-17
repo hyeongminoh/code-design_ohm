@@ -1,0 +1,2 @@
+@Entity
+@Table(name = "refund")
