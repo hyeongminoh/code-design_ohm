@@ -12,6 +12,7 @@ public class Exception1 {
     private final MemberRepository memberRepository;
 
     // 예외가 발생핬지만, 아무 처리도 하지 않고 로직을 진행한다.
+    //가장 안좋은 케이스
     public void doXXX1(final Long id) {
         String name = null;
         try {

@@ -1,6 +1,7 @@
 package com.code.design;
 
 import java.io.IOException;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class MemberService {
 
+    //예외처리를 잘하자
+    //objectMapper
+    //checked exception: 반드시 예외 처리 해야 함, rollback x, IOException, SQLException
+    //unchecked exception: 예외 처리 하지 않아도 됨, Rollback O, NullPointerException IllegalArgumentException
     private final MemberRepository memberRepository;
 
     public Member createUncheckedException() {

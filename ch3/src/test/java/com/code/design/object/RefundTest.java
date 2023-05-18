@@ -15,54 +15,54 @@ class RefundTest {
     @BeforeEach
     public void setUp() {
         final Address address = Address.builder()
-            .address1("서울시 관악구 293-1")
-            .address2("201호")
-            .zip("503-23")
-            .build();
+                .address1("서울시 관악구 293-1")
+                .address2("201호")
+                .zip("503-23")
+                .build();
 
         account = Account.builder()
-            .accountHolder("홍길동")
-            .accountNumber("110-2304-22344")
-            .bankName("신한은행")
-            .build();
+                .accountHolder("홍길동")
+                .accountNumber("110-2304-22344")
+                .bankName("신한은행")
+                .build();
 
         creditCard = CreditCard.builder()
-            .creditNumber("110-22345-22345")
-            .creditHolder("홍길동")
-            .build();
+                .creditNumber("110-22345-22345")
+                .creditHolder("홍길동")
+                .build();
 
         order = Order.builder()
-            .address(address)
-            .build();
+                .address(address)
+                .build();
     }
 
     @Test
     public void ByAccountBuilder_test_account_null이면_exception() {
 
         thenThrownBy(() -> Refund.ByAccountBuilder()
-            .account(null)
-            .order(order)
-            .build()
+                .account(null)
+                .order(order)
+                .build()
         )
-            .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void ByAccountBuilder_testorder_null이면_exception() {
         thenThrownBy(() -> Refund.ByAccountBuilder()
-            .account(account)
-            .order(null)
-            .build()
+                .account(account)
+                .order(null)
+                .build()
         )
-            .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void ByAccountBuilder_test() {
         final Refund refund = Refund.ByAccountBuilder()
-            .account(account)
-            .order(order)
-            .build();
+                .account(account)
+                .order(order)
+                .build();
 
         then(refund.getAccount()).isEqualTo(account);
         then(refund.getOrder()).isEqualTo(order);
@@ -72,20 +72,20 @@ class RefundTest {
     @Test
     public void ByCreditBuilder_test_account_null이면_exception() {
         thenThrownBy(() -> Refund.ByAccountBuilder()
-            .account(null)
-            .order(order)
-            .build()
+                .account(null)
+                .order(order)
+                .build()
         )
-            .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void ByCreditBuilder_test_order_null이면_exception() {
         thenThrownBy(() -> Refund.ByCreditBuilder()
-            .creditCard(creditCard)
-            .order(null)
-            .build()
+                .creditCard(creditCard)
+                .order(null)
+                .build()
         )
-            .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
